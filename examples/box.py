@@ -5,10 +5,11 @@ import time
 
 import meshcat
 
-vis = meshcat.Visualizer().open()
+vis = meshcat.Visualizer(zmq_url="tcp://127.0.0.1:6000")
 
 box = meshcat.geometry.Box([0.5, 0.5, 0.5])
-vis.set_object(box)
+material = meshcat.geometry.MeshBasicMaterial(color=0xff0000)
+vis.set_object(box, material)
 
 draw_times = []
 
